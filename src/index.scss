@@ -1,0 +1,100 @@
+@import-normalize;
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  margin: 85px 0;
+  background-color: #e7f6ff;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.wrapper {
+  width: 1080px;
+  height: 2000px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 0;
+  border-bottom: 1px solid #eaeaea;
+
+  .leftSide {
+    display: flex;
+    gap: 20px;
+    margin-left: 60px;
+  }
+
+  .rightSide {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    gap: 20px;
+    margin-right: 60px;
+
+    span {
+      margin-left: 5px;
+    }
+  }
+}
+
+main {
+  margin: 0 60px;
+
+  .sneakers {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    margin: 40px 0;
+  }
+
+  .card {
+    width: 220px;
+    height: 250px;
+    box-sizing: border-box;
+    padding: 0 23px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 40px;
+    border: 1px solid #f3f3f3;
+  }
+
+  .cardBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .btn {
+      cursor: pointer;
+    }
+  }
+
+  .cardPrice {
+    display: flex;
+    flex-direction: column;
+  }
+}
