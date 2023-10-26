@@ -37,9 +37,18 @@ function App() {
       </header>
 
       <main>
-        <h1>Все кроссовки</h1>
+        <div className="searchBlock">
+          <h1>Все кроссовки</h1>
+          <div className="searchItem">
+            <img className="searchLogo" src="/img/search.svg" alt="search" />
+            <input type="search" placeholder="Поиск..." />
+          </div>
+        </div>
         <div className="sneakers">
           <div className="card">
+            <div className="favorite">
+              <MdOutlineFavoriteBorder size={20} />
+            </div>
             <img width={133} height={112} src="img/item1.jpg" alt="Nike Blazer" />
             <p>Мужские кроссовки Nike Blazer Mid Suede</p>
             <div className="cardBottom">
