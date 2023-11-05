@@ -4,18 +4,18 @@ import { IconContext } from 'react-icons';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
 
-const Card = () => {
+const Card = ({ name, price, image }) => {
   return (
     <div className="card">
       <div className="favorite">
         <MdOutlineFavoriteBorder size={20} />
       </div>
-      <img width={133} height={112} src="img/item1.jpg" alt="Nike Blazer" />
-      <p>Мужские кроссовки Nike Blazer Mid Suede</p>
+      <img width={133} height={112} src={image} alt="Nike Blazer" />
+      <p>{name}</p>
       <div className="cardBottom">
         <div className="cardPrice">
           <span>Цена:</span>
-          <b>12 999 руб.</b>
+          <b>{price} руб.</b>
         </div>
         <div className="btn">
           <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
