@@ -1,10 +1,12 @@
 import Header from './components/Header';
-import Card from './components/Card';
+import Card from './components/Card/Card';
 import Cart from './components/Cart';
 
 const items = [
   { name: 'Мужские кроссовки Nike Blazer Mid Suede', price: 12999, imageUrl: 'img/item1.jpg' },
   { name: 'Мужские Кроссовки Nike Air Max 270', price: 8999, imageUrl: 'img/item2.jpg' },
+  { name: 'Мужские Кроссовки Nike Air Max 270', price: 9999, imageUrl: 'img/item3.jpg' },
+  { name: 'Мужские Кроссовки Nike Air Max 270', price: 7999, imageUrl: 'img/item4.jpg' },
 ];
 
 function App() {
@@ -22,7 +24,12 @@ function App() {
         </div>
         <div className="sneakers">
           {items.map((item) => (
-            <Card name={item.name} price={item.price} image={item.imageUrl} />
+            <Card
+              name={item.name}
+              price={item.price}
+              image={item.imageUrl}
+              onClickPlus={() => alert(item.price)}
+            />
           ))}
         </div>
       </main>
