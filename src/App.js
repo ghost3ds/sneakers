@@ -24,12 +24,7 @@ function App() {
         </div>
         <div className="sneakers">
           {items.map((item) => (
-            <Card
-              name={item.name}
-              price={item.price}
-              image={item.imageUrl}
-              onClickPlus={() => alert(item.price)}
-            />
+            <Card name={item.name} price={item.price} image={item.imageUrl} />
           ))}
         </div>
       </main>
