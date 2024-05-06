@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import Card from './components/Card/Card';
 import Cart from './components/Cart';
+import { useState } from 'react';
 
 const items = [
   { name: 'Мужские кроссовки Nike Blazer Mid Suede', price: 12999, imageUrl: 'img/item1.jpg' },
@@ -10,10 +11,12 @@ const items = [
 ];
 
 function App() {
+  const [openCart, setOpenCart] = useState(false);
+
   return (
     <div className="wrapper">
-      <Cart />
-      <Header />
+      {openCart && <Cart onClose={() => setOpenCart(false)} />}
+      <Header onClickCart={() => setOpenCart(true)} />
       <main>
         <div className="searchBlock">
           <h1>Все кроссовки</h1>

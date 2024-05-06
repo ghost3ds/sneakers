@@ -61,6 +61,15 @@ code {
   z-index: 9;
   padding: 30px;
 
+  .drawer_header {
+    display: flex;
+    justify-content: space-between;
+
+    .closeCart {
+      cursor: pointer;
+    }
+  }
+
   .greenBtn {
     position: relative;
     &:hover {
@@ -163,6 +172,10 @@ header {
 
     span {
       margin-left: 5px;
+    }
+
+    li {
+      cursor: pointer;
     }
   }
 }

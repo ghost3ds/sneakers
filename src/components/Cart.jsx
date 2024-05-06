@@ -1,11 +1,18 @@
 import { IconContext } from 'react-icons';
 import { MdRemoveCircle } from 'react-icons/md';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 
-const Cart = () => {
+const Cart = (props) => {
   return (
-    <div className="overlay" style={{ display: 'none' }}>
+    <div className="overlay">
       <div className="drawer">
-        <h2>Корзина</h2>
+        <div className="drawer_header">
+          <h2>Корзина</h2>
+          <div className="closeCart" onClick={props.onClose}>
+            <IoIosCloseCircleOutline size={21} />
+          </div>
+        </div>
+
         <div className="cartItems">
           <div className="cartItem">
             <img width={70} height={70} src="img/item1.jpg" alt="Nike Blazer" />

@@ -5,7 +5,7 @@ import { AiOutlineUser } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header>
       <div className="leftSide">
@@ -16,7 +16,7 @@ const Header = () => {
         </div>
       </div>
       <ul className="rightSide">
-        <li>
+        <li onClick={props.onClickCart}>
           <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
             <CgShoppingCart size={20} />
           </IconContext.Provider>
