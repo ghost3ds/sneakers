@@ -1,17 +1,19 @@
 import Header from './components/Header';
 import Card from './components/Card/Card';
 import Cart from './components/Cart';
-import { useState } from 'react';
-
-const items = [
-  { name: 'Мужские кроссовки Nike Blazer Mid Suede', price: 12999, imageUrl: 'img/item1.jpg' },
-  { name: 'Мужские Кроссовки Nike Air Max 270', price: 8999, imageUrl: 'img/item2.jpg' },
-  { name: 'Мужские Кроссовки Nike Air Max 270', price: 9999, imageUrl: 'img/item3.jpg' },
-  { name: 'Мужские Кроссовки Nike Air Max 270', price: 7999, imageUrl: 'img/item4.jpg' },
-];
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [items, setItems] = useState([]);
   const [openCart, setOpenCart] = useState(false);
+
+  useEffect(() => {
+    fetch('https://636f5291f2ed5cb047daa480.mockapi.io/articles')
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => setItems(json));
+  }, []);
 
   return (
     <div className="wrapper">
