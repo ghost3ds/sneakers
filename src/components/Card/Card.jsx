@@ -5,9 +5,10 @@ import { AiOutlinePlusCircle, AiFillPlusCircle } from 'react-icons/ai';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { useState } from 'react';
 
-const Card = ({ name, price, image }) => {
+const Card = ({ name, price, image, addToCart }) => {
   const [added, setAdded] = useState(false);
   const onClickPlus = () => {
+    addToCart({ name, price, image });
     setAdded(!added);
   };
 

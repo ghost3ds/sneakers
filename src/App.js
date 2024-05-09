@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [items, setItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [openCart, setOpenCart] = useState(false);
 
   useEffect(() => {
@@ -15,9 +16,17 @@ function App() {
       .then((json) => setItems(json));
   }, []);
 
+  const onAddToCart = (obj) => {
+    if (cartItems.includes(obj)) {
+      setCartItems([cartItems]);
+    } else {
+      setCartItems([...cartItems, obj]);
+    }
+  };
+
   return (
     <div className="wrapper">
-      {openCart && <Cart onClose={() => setOpenCart(false)} />}
+      {openCart && <Cart onClose={() => setOpenCart(false)} cartItems={cartItems} />}
       <Header onClickCart={() => setOpenCart(true)} />
       <main>
         <div className="searchBlock">
@@ -29,7 +38,12 @@ function App() {
         </div>
         <div className="sneakers">
           {items.map((item) => (
-            <Card name={item.name} price={item.price} image={item.imageUrl} />
+            <Card
+              name={item.name}
+              price={item.price}
+              image={item.imageUrl}
+              addToCart={(obj) => onAddToCart(obj)}
+            />
           ))}
         </div>
       </main>
