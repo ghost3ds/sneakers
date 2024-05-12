@@ -12,21 +12,24 @@ const Cart = ({ onClose, cartItems }) => {
             <IoIosCloseCircleOutline size={21} />
           </div>
         </div>
-
-        <div className="cartItems">
-          {cartItems.map((obj) => (
-            <div className="cartItem">
-              <img width={70} height={70} src={obj.image} alt="Nike Blazer" />
-              <div className="cartPrice">
-                <p>{obj.name}</p>
-                <b>{obj.price}</b>
+        {cartItems.length > 0 ? (
+          <div className="cartItems">
+            {cartItems.map((obj) => (
+              <div className="cartItem">
+                <img width={70} height={70} src={obj.image} alt="Nike Blazer" />
+                <div className="cartPrice">
+                  <p>{obj.name}</p>
+                  <b>{obj.price}</b>
+                </div>
+                <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+                  <MdRemoveCircle size={21} className="removeBtn" />
+                </IconContext.Provider>
               </div>
-              <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-                <MdRemoveCircle size={21} className="removeBtn" />
-              </IconContext.Provider>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          'Корзина пуста'
+        )}
         <div className="totalPrice">
           <span>Итого:</span>
           <div className="line"></div>

@@ -17,9 +17,7 @@ function App() {
   }, []);
 
   const onAddToCart = (obj) => {
-    if (cartItems.includes(obj)) {
-      setCartItems([cartItems]);
-    } else {
+    if (!cartItems.some((item) => item.name === obj.name)) {
       setCartItems([...cartItems, obj]);
     }
   };
