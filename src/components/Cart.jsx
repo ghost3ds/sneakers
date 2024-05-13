@@ -2,7 +2,7 @@ import { IconContext } from 'react-icons';
 import { MdRemoveCircle } from 'react-icons/md';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 
-const Cart = ({ onClose, cartItems }) => {
+const Cart = ({ onClose, cartItems, onDeleteCart }) => {
   return (
     <div className="overlay">
       <div className="drawer">
@@ -22,7 +22,11 @@ const Cart = ({ onClose, cartItems }) => {
                   <b>{obj.price}</b>
                 </div>
                 <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-                  <MdRemoveCircle size={21} className="removeBtn" />
+                  <MdRemoveCircle
+                    size={21}
+                    className="removeBtn"
+                    onClick={() => onDeleteCart(obj.id)}
+                  />
                 </IconContext.Provider>
               </div>
             ))}

@@ -17,14 +17,24 @@ function App() {
   }, []);
 
   const onAddToCart = (obj) => {
-    if (!cartItems.some((item) => item.name === obj.name)) {
-      setCartItems([...cartItems, obj]);
+    if (!cartItems.some((item) => item.id === obj.id)) {
+      setCartItems((prev) => [...prev, obj]);
     }
+  };
+
+  const onDeleteCart = (id) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
   return (
     <div className="wrapper">
-      {openCart && <Cart onClose={() => setOpenCart(false)} cartItems={cartItems} />}
+      {openCart && (
+        <Cart
+          onClose={() => setOpenCart(false)}
+          cartItems={cartItems}
+          onDeleteCart={onDeleteCart}
+        />
+      )}
       <Header onClickCart={() => setOpenCart(true)} />
       <main>
         <div className="searchBlock">
@@ -37,6 +47,7 @@ function App() {
         <div className="sneakers">
           {items.map((item) => (
             <Card
+              id={item.id}
               name={item.name}
               price={item.price}
               image={item.imageUrl}
