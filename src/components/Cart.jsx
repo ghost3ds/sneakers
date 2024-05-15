@@ -1,6 +1,7 @@
 import { IconContext } from 'react-icons';
 import { MdRemoveCircle } from 'react-icons/md';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 const Cart = ({ onClose, cartItems, onDeleteCart }) => {
   return (
@@ -8,9 +9,11 @@ const Cart = ({ onClose, cartItems, onDeleteCart }) => {
       <div className="drawer">
         <div className="drawer_header">
           <h2>Корзина</h2>
-          <div className="closeCart" onClick={onClose}>
-            <IoIosCloseCircleOutline size={21} />
-          </div>
+          <Link to="/" className="link">
+            <div className="closeCart" onClick={onClose}>
+              <IoIosCloseCircleOutline size={21} />
+            </div>
+          </Link>
         </div>
         {cartItems.length > 0 ? (
           <div className="cartItems">

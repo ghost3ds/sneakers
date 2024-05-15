@@ -1,7 +1,8 @@
 import Header from './components/Header';
-import Card from './components/Card/Card';
 import Cart from './components/Cart';
 import { useState, useEffect } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import Home from './Pages/Home';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -28,34 +29,22 @@ function App() {
 
   return (
     <div className="wrapper">
-      {openCart && (
-        <Cart
-          onClose={() => setOpenCart(false)}
-          cartItems={cartItems}
-          onDeleteCart={onDeleteCart}
-        />
-      )}
       <Header onClickCart={() => setOpenCart(true)} />
-      <main>
-        <div className="searchBlock">
-          <h1>Все кроссовки</h1>
-          <div className="searchItem">
-            <img className="searchLogo" src="/img/search.svg" alt="search" />
-            <input type="search" placeholder="Поиск..." />
-          </div>
-        </div>
-        <div className="sneakers">
-          {items.map((item) => (
-            <Card
-              id={item.id}
-              name={item.name}
-              price={item.price}
-              image={item.imageUrl}
-              addToCart={(obj) => onAddToCart(obj)}
-            />
-          ))}
-        </div>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home items={items} onAddToCart={onAddToCart} />} />
+        <Route
+          path="/cart"
+          element={
+            openCart && (
+              <Cart
+                onClose={() => setOpenCart(false)}
+                cartItems={cartItems}
+                onDeleteCart={onDeleteCart}
+              />
+            )
+          }
+        />
+      </Routes>
     </div>
   );
 }
