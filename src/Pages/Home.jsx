@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Card from '../components/Card/Card';
 
 function Home({ items, onAddToCart }) {
-  const [searchValue, setSearchValue] = useState();
+  const [searchValue, setSearchValue] = useState('');
   console.log(searchValue);
   return (
     <main>
@@ -19,15 +19,17 @@ function Home({ items, onAddToCart }) {
         </div>
       </div>
       <div className="sneakers">
-        {items.map((item) => (
-          <Card
-            id={item.id}
-            name={item.name}
-            price={item.price}
-            image={item.imageUrl}
-            addToCart={(obj) => onAddToCart(obj)}
-          />
-        ))}
+        {items
+          .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
+          .map((item) => (
+            <Card
+              id={item.id}
+              name={item.name}
+              price={item.price}
+              image={item.imageUrl}
+              addToCart={(obj) => onAddToCart(obj)}
+            />
+          ))}
       </div>
     </main>
   );
