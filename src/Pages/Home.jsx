@@ -1,13 +1,21 @@
+import { useState } from 'react';
 import Card from '../components/Card/Card';
 
 function Home({ items, onAddToCart }) {
+  const [searchValue, setSearchValue] = useState();
+  console.log(searchValue);
   return (
     <main>
       <div className="searchBlock">
         <h1>Все кроссовки</h1>
         <div className="searchItem">
           <img className="searchLogo" src="/img/search.svg" alt="search" />
-          <input type="search" placeholder="Поиск..." />
+          <input
+            value={searchValue}
+            onChange={(event) => setSearchValue(event.target.value)}
+            type="search"
+            placeholder="Поиск..."
+          />
         </div>
       </div>
       <div className="sneakers">
